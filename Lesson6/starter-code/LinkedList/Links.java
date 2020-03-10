@@ -23,10 +23,11 @@ public class Links extends Node {
             }
             else{
                 /* insert in the middle or at the end? */
-
+                temp.setNext(current.getNext());
+                current.setNext(temp);
             }
-            
-            
+            size++;
+
         }
 
     }
@@ -40,11 +41,40 @@ public class Links extends Node {
             while(current != null){
                 System.out.print(current.getData() + "->");
                 current = current.getNext();
-            }    
+            }
             System.out.print("\n");
         }
-        
-        
-    } 
-    
+
+
+    }
+
+    public void removeNode(int data) {
+      Node current = head;
+      if (current.getData() == data){
+        /* remove head node */
+        head = current.getNext();
+      }
+      else {
+        /*remove non head node */
+        while(current != null && current.getNext().getData() != data) {
+          current = current.getNext();
+        }
+        current.setNext(current.getNext().getNext());
+      }
+      size--;
+    }
+
+    public boolean findNode(int data) {
+      /* add logic */
+      Node current = head;
+      while(current != null && current.getNext().getData() != data) {
+          return true;        
+      }
+      if (current)
+
+      }
+
+      }
+    }
+
 }
